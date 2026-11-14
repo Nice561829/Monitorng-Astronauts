@@ -1,0 +1,6 @@
+{
+  "name": "AeroHUD Telemetry",
+  "description": "Mission-critical deep-space expedition telemetry, life-support biosignals, orbital navigation, and spacecraft systems HUD console.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

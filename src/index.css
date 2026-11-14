@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #EDF5FB;
+    color: #0F172A;
+    font-family: var(--font-sans);
+    color-scheme: light;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #BAE6FD #EDF5FB;
+  }
+}
+
+/* Bright, Airy Frosted Aerospace HUD Surface Tiers */
+.hud-panel {
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  box-shadow: 0 8px 24px -10px rgba(15, 23, 42, 0.08);
+  border-radius: 6px;
+}
+
+.hud-panel-focused {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(2, 132, 199, 0.55);
+  box-shadow: 0 10px 28px -8px rgba(2, 132, 199, 0.20);
+  border-radius: 6px;
+}
+
+.hud-panel-warning {
+  background-color: rgba(255, 251, 235, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(217, 119, 6, 0.50);
+  box-shadow: 0 10px 24px -8px rgba(217, 119, 6, 0.18);
+  border-radius: 6px;
+}
+
+.hud-panel-emergency {
+  background-color: rgba(254, 242, 242, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #DC2626;
+  box-shadow: 0 12px 28px -6px rgba(220, 38, 38, 0.28);
+  border-radius: 6px;
+}
+
+/* Clean Ice-Tinted Recessed Trough */
+.hud-trough {
+  background-color: #F4F9FD;
+  border: 1px solid #D5E5F2;
+  border-radius: 6px;
+}
+
+/* Telemetry Typographic Utility Classes */
+.label-caps {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.telemetry-lg {
+  font-family: var(--font-mono);
+  font-size: 2.125rem;
+  font-weight: 600;
+  line-height: 2.375rem;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.telemetry-md {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.telemetry-sm {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Soft Daylight Telemetry Grid */
+.hud-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(14, 165, 233, 0.11) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.11) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes emergencyPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.emergency-beacon {
+  animation: emergencyPulse 1s infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-beacon {
+    animation: none;
+  }
+}
+
+/* Custom Range Slider for Precision Sensor Scrubbers */
+input[type="range"].hud-scrubber {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"].hud-scrubber::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #DCEAF6;
+  border-radius: 3px;
+  border: 1px solid #BDD7EC;
+}
+
+input[type="range"].hud-scrubber::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 18px;
+  margin-top: -7px;
+  background: #0284C7;
+  border: 2px solid #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
+}
+
+input[type="range"].hud-scrubber:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #0284C7;
+  outline-offset: 2px;
+}
